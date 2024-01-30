@@ -8,9 +8,9 @@ These are the commands to build a Docker container that can also be found on the
 
 To Build:
 1. Build the Docker container
-'''
+```
 docker build -t world_pop_count .
 docker run -p 8888:8888 world_pop_count
-'''
+```
 
 2. Follow the links provided by the ouput from the commands above. This will take you to a jupyter notebook with instructions and commands to run the World Pop Data download pipeline.
