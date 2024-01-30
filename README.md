@@ -1,2 +1,3 @@
 # gq-notebook-containers
-Containers that run notebooks with Geoquery data pipelines
+Docker containers that run notebooks with GeoQuery data download pipelines.
+Data download pipelines from: https://github.com/aiddata/geo-datasets
