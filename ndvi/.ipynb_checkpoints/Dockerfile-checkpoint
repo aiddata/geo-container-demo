@@ -3,7 +3,10 @@ FROM quay.io/jupyter/base-notebook
 USER root
 
 RUN apt-get update \
-    && apt-get install -y curl build-essential wget \ 
+    && apt-get install -y --no-install-recommends \
+        curl \
+        build-essential \
+        wget \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -13,14 +16,18 @@ RUN conda install -y -c conda-forge \
     gdal \
     libnetcdf \
     hdf4 \
-    hdf5
+    hdf5 \
+    proj \
+    numpy
+    
+RUN conda install -y -c conda-forge gdal
 
-RUN conda install -y proj
-RUN pip install --user numpy
+RUN pip install rasterio
 
 USER $NB_UID
 
 COPY requirements.txt requirements.txt
+USER root
 RUN pip install -r requirements.txt --no-cache-dir --no-binary rasterio
 
 COPY ndvi.ipynb ndvi.ipynb

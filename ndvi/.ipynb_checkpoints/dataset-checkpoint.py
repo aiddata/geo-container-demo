@@ -15,7 +15,7 @@ from tempfile import TemporaryDirectory, mkstemp
 
 
 """
-A namedtuple that represents the results of one task
+A namedtuple that represents the results of one tasky
 You can access a status code, for example, using TaskResult.status_code or TaskResult[0]
 """
 TaskResult = namedtuple("TaskResult", ["status_code", "status_message", "args", "result"])

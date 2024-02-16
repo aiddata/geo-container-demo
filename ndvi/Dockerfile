@@ -7,6 +7,7 @@ RUN apt-get update \
         curl \
         build-essential \
         wget \
+        git \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -19,12 +20,18 @@ RUN conda install -y -c conda-forge \
     hdf5 \
     proj \
     numpy
+    
+RUN conda install -y -c conda-forge gdal
 
 RUN pip install rasterio
 
 USER $NB_UID
 
 COPY requirements.txt requirements.txt
+
+RUN git clone --branch develop-k8s https://github.com/aiddata/geo-datasets --depth 1
+
+
 USER root
 RUN pip install -r requirements.txt --no-cache-dir --no-binary rasterio
 
