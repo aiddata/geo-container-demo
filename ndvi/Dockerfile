@@ -25,14 +25,22 @@ RUN conda install -y -c conda-forge gdal
 
 RUN pip install rasterio
 
-USER $NB_UID
-
 COPY requirements.txt requirements.txt
+
+RUN pip install -r requirements.txt --no-cache-dir --no-binary rasterio
+
+VOLUME /home/jovyan/ltdr_ndvi
+
+WORKDIR /home/jovyan/ltdr_ndvi
+
+RUN chown -R jovyan /home/jovyan/ltdr_ndvi
 
 RUN git clone --branch develop-k8s https://github.com/aiddata/geo-datasets --depth 1
 
+RUN pip install ./geo-datasets/global_scripts/data_manager
 
-USER root
-RUN pip install -r requirements.txt --no-cache-dir --no-binary rasterio
+COPY main.ipynb /home/jovyan/ltdr_ndvi/main.ipynb
 
-COPY ndvi.ipynb ndvi.ipynb
+COPY config.ini /home/jovyan/ltdr_ndvi/config.ini
+
+ENV TOKEN="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbF9hZGRyZXNzIjoiY21od2FuZzkyNjE3QGdtYWlsLmNvbSIsImlzcyI6IkFQUyBPQXV0aDIgQXV0aGVudGljYXRvciIsImlhdCI6MTY5OTYwNTE4NiwibmJmIjoxNjk5NjA1MTg2LCJleHAiOjE4NTcyODUxODYsInVpZCI6ImNtaHdhbmciLCJ0b2tlbkNyZWF0b3IiOiJjbWh3YW5nIn0.mg3qEFw8tByTTbxO4J7T4KdbEBD48SbrpYbJZ48Mq3E"
