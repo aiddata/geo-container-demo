@@ -19,5 +19,8 @@ This script downloads daily NDVI data, unpacks them from HDF containers into the
    - Add your EarthData token (see step 2)
    Refer to the `Dataset` documentation for more information about config options
 
-4. Run the script!
-   go to the main.ipynb file and run each cell
+4. Build the Docker container 
+   - run the command in your terminal 'docker build -t ndvi:[tag_name] ./ndvi'
+      - you may need to use sudo before it
+   - after building has completed run 'docker run --rm -it -e TOKEN=$TOKEN -p 10000:8888 -v /path/GitHub/gq-notebook-containers/ndvi:/home/jovyan/ltdr_ndvi ndvi'
+   - from the terminal output, copy the link given and replace 8888 with 10000 in your browser
