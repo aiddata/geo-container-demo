@@ -1,6 +1,6 @@
 archive/
-data/
-!data/ndvi/output/yearly/*.tif
+data/*
+!data/extract.csv
 code/__pycache__/
 code/.ipynb_checkpoints/
 .ipynb_checkpoints/
