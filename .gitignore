@@ -1,0 +1,13 @@
+archive/
+data/
+!data/ndvi/output/yearly/*.tif
+code/__pycache__/
+code/.ipynb_checkpoints/
+.ipynb_checkpoints/
+.ipython/
+.jupyter/
+.local/
+.config/
+.bash_history
+.wget-hsts
+.DS_Store
