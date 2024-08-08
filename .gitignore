@@ -1,6 +1,8 @@
 archive/
 data/*
 !data/extract.csv
+!data/plots/
+
 code/__pycache__/
 code/.ipynb_checkpoints/
 .ipynb_checkpoints/
