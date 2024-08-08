@@ -46,7 +46,7 @@ TODO
     - open permissions on src dir
         - `chmod -R 777 $src_dir`
     - set the tag you want to use:
-        -`demo_tag=geodemo_01`
+        -`demo_tag=geodemo`
     - run the command in your terminal (use --no-cache if you need a fresh rebuild)
         -`docker build -t geodemo:$demo_tag ./`
         - you may need to use sudo before it
