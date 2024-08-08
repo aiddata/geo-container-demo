@@ -34,7 +34,7 @@ AidData's Geospatial Chinese Development Finance dataset (Geo GCDF v3) provides 
     - Navigate to the [LAADS DAAC website](https://ladsweb.modaps.eosdis.nasa.gov/)
     - Click on "Login" at the top right of the screen
     - Click on "Generate Token"
-    - Copy the generated token into `config.ini`
+    - Copy the generated token into `code/config.ini`
 
 3. Customize `config.ini` to meet your needs
     - Choose which years you'd like to download and process
