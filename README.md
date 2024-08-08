@@ -36,7 +36,7 @@ AidData's Geospatial Chinese Development Finance dataset (Geo GCDF v3) provides 
     - Click on "Generate Token"
     - Copy the generated token into `code/config.ini`
 
-3. Customize `config.ini` to meet your needs
+3. Customize `code/config.ini` to meet your needs
     - Choose which years you'd like to download and process
     - Set your raw and output directories
     - Add your EarthData token (see step 2)
